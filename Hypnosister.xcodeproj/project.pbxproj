@@ -14,6 +14,7 @@
 		9CE982611A3DE2C5003F5D16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CE982601A3DE2C5003F5D16 /* Images.xcassets */; };
 		9CE982641A3DE2C5003F5D16 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CE982621A3DE2C5003F5D16 /* LaunchScreen.xib */; };
 		9CE982701A3DE2C5003F5D16 /* HypnosisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9826F1A3DE2C5003F5D16 /* HypnosisterTests.m */; };
+		9CE9827E1A3DF130003F5D16 /* HypnosisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE9827D1A3DF130003F5D16 /* HypnosisView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		9CE982691A3DE2C5003F5D16 /* HypnosisterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HypnosisterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE9826E1A3DE2C5003F5D16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CE9826F1A3DE2C5003F5D16 /* HypnosisterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HypnosisterTests.m; sourceTree = "<group>"; };
+		9CE9827C1A3DF130003F5D16 /* HypnosisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnosisView.h; sourceTree = "<group>"; };
+		9CE9827D1A3DF130003F5D16 /* HypnosisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				9CE982601A3DE2C5003F5D16 /* Images.xcassets */,
 				9CE982621A3DE2C5003F5D16 /* LaunchScreen.xib */,
 				9CE982531A3DE2C5003F5D16 /* Supporting Files */,
+				9CE9827C1A3DF130003F5D16 /* HypnosisView.h */,
+				9CE9827D1A3DF130003F5D16 /* HypnosisView.m */,
 			);
 			path = Hypnosister;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CE9825C1A3DE2C5003F5D16 /* ViewController.m in Sources */,
+				9CE9827E1A3DF130003F5D16 /* HypnosisView.m in Sources */,
 				9CE982591A3DE2C5003F5D16 /* AppDelegate.m in Sources */,
 				9CE982561A3DE2C5003F5D16 /* main.m in Sources */,
 			);

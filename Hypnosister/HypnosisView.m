@@ -24,11 +24,14 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
+- (void)drawRect:(CGRect)rect
+{
    CGRect bounds = self.bounds;
    CGPoint center;
    center.x = bounds.origin.x + bounds.size.width / 2.0;
    center.y = bounds.origin.y + bounds.size.height / 2.0;
+   
+   // Draw concentric circles
    float maxRadius = hypot(bounds.size.width, bounds.size.height) / 2.0;
    
    [[UIColor lightGrayColor] setStroke];
@@ -44,8 +47,18 @@
    }
 
    path.lineWidth = 10;
-   
    [path stroke];
+   
+   // Draw BNR logo
+   UIImage *logoImage = [UIImage imageNamed:@"logo"];
+   float screenRatio = 0.7;
+   CGSize logoSize = CGSizeMake(bounds.size.width * screenRatio, bounds.size.height * screenRatio);
+   CGPoint logoOrigin = CGPointMake((bounds.size.width - logoSize.width) / 2.0,
+                                    (bounds.size.height - logoSize.height) / 2.0);
+   
+   CGRect logoRect = CGRectMake(logoOrigin.x, logoOrigin.y, logoSize.width, logoSize.height);
+   [logoImage drawInRect:logoRect];
+   
 }
 
 

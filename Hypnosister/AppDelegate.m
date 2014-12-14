@@ -22,8 +22,12 @@
    CGRect firstFrame = CGRectMake(160, 240, 100, 150);
    HypnosisView *firstView = [[HypnosisView alloc] initWithFrame:firstFrame];
    firstView.backgroundColor = [UIColor redColor];
-   
    [self.window addSubview:firstView];
+   
+   CGRect secondFrame = CGRectMake(20, 30, 50, 50);
+   HypnosisView *secondView = [[HypnosisView alloc] initWithFrame:secondFrame];
+   secondView.backgroundColor = [UIColor blueColor];
+   [self.window addSubview:secondView];
    
    self.window.backgroundColor = [UIColor whiteColor];
    [self.window makeKeyAndVisible];

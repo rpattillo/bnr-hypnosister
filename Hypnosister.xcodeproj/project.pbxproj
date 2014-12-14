@@ -86,14 +86,14 @@
 			children = (
 				9CE982571A3DE2C5003F5D16 /* AppDelegate.h */,
 				9CE982581A3DE2C5003F5D16 /* AppDelegate.m */,
-				9CE9825A1A3DE2C5003F5D16 /* ViewController.h */,
-				9CE9825B1A3DE2C5003F5D16 /* ViewController.m */,
-				9CE9825D1A3DE2C5003F5D16 /* Main.storyboard */,
-				9CE982601A3DE2C5003F5D16 /* Images.xcassets */,
-				9CE982621A3DE2C5003F5D16 /* LaunchScreen.xib */,
-				9CE982531A3DE2C5003F5D16 /* Supporting Files */,
 				9CE9827C1A3DF130003F5D16 /* HypnosisView.h */,
 				9CE9827D1A3DF130003F5D16 /* HypnosisView.m */,
+				9CE982601A3DE2C5003F5D16 /* Images.xcassets */,
+				9CE982621A3DE2C5003F5D16 /* LaunchScreen.xib */,
+				9CE9825D1A3DE2C5003F5D16 /* Main.storyboard */,
+				9CE982531A3DE2C5003F5D16 /* Supporting Files */,
+				9CE9825A1A3DE2C5003F5D16 /* ViewController.h */,
+				9CE9825B1A3DE2C5003F5D16 /* ViewController.m */,
 			);
 			path = Hypnosister;
 			sourceTree = "<group>";

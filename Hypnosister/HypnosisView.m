@@ -8,6 +8,12 @@
 
 #import "HypnosisView.h"
 
+@interface HypnosisView ()
+
+@property (strong, nonatomic) UIColor *circleColor;
+
+@end
+
 @implementation HypnosisView
 
 
@@ -16,6 +22,7 @@
    self = [super initWithFrame:frame];
    if (self ) {
       self.backgroundColor = [UIColor clearColor];
+      self.circleColor = [UIColor lightGrayColor];
    }
    
    return self;
@@ -31,7 +38,7 @@
    center.y = bounds.origin.y + bounds.size.height / 2.0;
    float maxRadius = hypot(bounds.size.width, bounds.size.height) / 2.0;
    
-   [[UIColor lightGrayColor] setStroke];
+   [self.circleColor setStroke];
    
    UIBezierPath *path = [[UIBezierPath alloc] init];
    for ( float currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20 ) {

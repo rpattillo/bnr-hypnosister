@@ -48,8 +48,36 @@
 
    path.lineWidth = 10;
    [path stroke];
+
+   CGContextRef currentContext = UIGraphicsGetCurrentContext();
+
+   // Draw Gradient
+   CGContextSaveGState(currentContext);
+   UIBezierPath *clippingMask = [[UIBezierPath alloc] init];
+   [clippingMask moveToPoint:CGPointMake(bounds.size.width / 2.0, bounds.size.height / 8.0)];
+   [clippingMask addLineToPoint:CGPointMake(bounds.size.width * 4.0 / 5.0, bounds.size.height * 7.0 / 8.0)];
+   [clippingMask addLineToPoint:CGPointMake(bounds.size.width / 5.0, bounds.size.height * 7.0 / 8.0)];
+   [clippingMask closePath];
+   [clippingMask addClip];
+   
+   CGFloat locations[2] = {0.0, 1.0};
+   CGFloat components[8] = {1.0, 0.0, 0.0, 1.0,
+      1.0, 1.0, 0.0, 1.0};
+   CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+   CGGradientRef gradient = CGGradientCreateWithColorComponents(colorspace, components, locations, 2);
+   CGPoint top = CGPointMake(bounds.size.width / 2.0, bounds.size.height / 8.0);
+   CGPoint bottom = CGPointMake(bounds.size.width / 2.0, bounds.size.height * 7.0 / 8.0);
+   CGContextDrawLinearGradient(currentContext, gradient, top, bottom, 0);
+   
+   CGContextRestoreGState(currentContext);
+   
+   CGColorSpaceRelease(colorspace);
+   CGGradientRelease(gradient);
    
    // Draw BNR logo
+   CGContextSaveGState(currentContext);
+   CGContextSetShadow(currentContext, CGSizeMake(4.0, 8.0), 3);
+   
    UIImage *logoImage = [UIImage imageNamed:@"logo"];
    float screenRatio = 0.7;
    CGSize logoSize = CGSizeMake(bounds.size.width * screenRatio, bounds.size.height * screenRatio);
@@ -59,6 +87,7 @@
    CGRect logoRect = CGRectMake(logoOrigin.x, logoOrigin.y, logoSize.width, logoSize.height);
    [logoImage drawInRect:logoRect];
    
+   CGContextRestoreGState(currentContext);
 }
 
 

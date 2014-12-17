@@ -24,12 +24,16 @@
    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
    [self.window addSubview:scrollView];
    
+   HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
+   [scrollView addSubview:hypnosisView];
+ 
+   CGRect secondViewRect = screenRect;
+   secondViewRect.origin.x += secondViewRect.size.width;
+   HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:secondViewRect];
+   [scrollView addSubview:anotherView];
+   
    CGRect bigRect = screenRect;
    bigRect.size.width *= 2;
-   bigRect.size.height *= 2;
-   HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:bigRect];
-
-   [scrollView addSubview:hypnosisView];
    scrollView.contentSize = bigRect.size;
    
    self.window.backgroundColor = [UIColor whiteColor];

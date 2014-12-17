@@ -17,6 +17,8 @@
 @implementation HypnosisView
 
 
+#pragma mark - Initializers
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
    self = [super initWithFrame:frame];
@@ -28,6 +30,16 @@
    return self;
 }
 
+
+#pragma mark - Accessors
+
+- (void)setCircleColor:(UIColor *)circleColor
+{
+   _circleColor = circleColor;
+   [self setNeedsDisplay];
+}
+
+#pragma mark - Overrides
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -53,6 +65,19 @@
    path.lineWidth = 10;
    
    [path stroke];
+}
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   NSLog( @"%@ was touched", self );
+   float red = (arc4random() % 101 ) / 100.0;
+   float green = (arc4random() % 101 ) / 100.0;
+   float blue = (arc4random() % 101 ) / 100.0;
+   
+   UIColor *randomColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+   
+   self.circleColor = randomColor;
 }
 
 

@@ -19,9 +19,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-   CGRect firstFrame = self.window.bounds;
-   HypnosisView *firstView = [[HypnosisView alloc] initWithFrame:firstFrame];
-   [self.window addSubview:firstView];
+   CGRect screenRect = self.window.bounds;
+   
+   UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+   [self.window addSubview:scrollView];
+   
+   CGRect bigRect = screenRect;
+   bigRect.size.width *= 2;
+   bigRect.size.height *= 2;
+   HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:bigRect];
+
+   [scrollView addSubview:hypnosisView];
+   scrollView.contentSize = bigRect.size;
    
    self.window.backgroundColor = [UIColor whiteColor];
    [self.window makeKeyAndVisible];

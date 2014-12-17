@@ -22,6 +22,7 @@
    CGRect screenRect = self.window.bounds;
    
    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
+   scrollView.pagingEnabled = YES;
    [self.window addSubview:scrollView];
    
    HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];

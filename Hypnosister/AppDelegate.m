@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "HypnosisView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UIScrollViewDelegate>
+
+@property (nonatomic, strong) HypnosisView *hypnosisView;
 
 @end
 
@@ -20,22 +22,14 @@
    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
    CGRect screenRect = self.window.bounds;
-   
    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:screenRect];
-   scrollView.pagingEnabled = YES;
+   scrollView.delegate = self;
+   scrollView.maximumZoomScale = 2.0;
    [self.window addSubview:scrollView];
    
-   HypnosisView *hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
-   [scrollView addSubview:hypnosisView];
- 
-   CGRect secondViewRect = screenRect;
-   secondViewRect.origin.x += secondViewRect.size.width;
-   HypnosisView *anotherView = [[HypnosisView alloc] initWithFrame:secondViewRect];
-   [scrollView addSubview:anotherView];
+   self.hypnosisView = [[HypnosisView alloc] initWithFrame:screenRect];
+   [scrollView addSubview:self.hypnosisView];
    
-   CGRect bigRect = screenRect;
-   bigRect.size.width *= 2;
-   scrollView.contentSize = bigRect.size;
    
    self.window.backgroundColor = [UIColor whiteColor];
    [self.window makeKeyAndVisible];
@@ -63,6 +57,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark - ScrollView Delegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+   return self.hypnosisView;
 }
 
 @end
